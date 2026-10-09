@@ -1,0 +1,31 @@
+{
+  "features": [
+    "temperature",
+    "humidity",
+    "pressure",
+    "lux",
+    "dt_seconds",
+    "temperature_change",
+    "humidity_change",
+    "pressure_change",
+    "temperature_rate",
+    "humidity_rate",
+    "pressure_rate",
+    "temperature_rolling_mean",
+    "humidity_rolling_mean",
+    "pressure_rolling_mean",
+    "temperature_rolling_std",
+    "humidity_rolling_std",
+    "pressure_rolling_std",
+    "temperature_dev_from_mean",
+    "humidity_dev_from_mean",
+    "pressure_dev_from_mean",
+    "temperature_rolling_zscore",
+    "humidity_rolling_zscore",
+    "pressure_rolling_zscore",
+    "temperature_short_std",
+    "humidity_short_std",
+    "pressure_short_std"
+  ],
+  "n_features": 26
+}

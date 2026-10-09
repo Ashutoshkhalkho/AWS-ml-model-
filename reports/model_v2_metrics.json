@@ -1,0 +1,115 @@
+{
+  "total_test_observations": 207967,
+  "total_normal_observations": 201426,
+  "total_injected_anomalies": 6541,
+  "systems": {
+    "isolation_forest_alone": {
+      "accuracy": 0.9548,
+      "precision": 0.3014,
+      "recall": 0.3321,
+      "f1_score": 0.316,
+      "confusion_matrix": {
+        "TN": 196391,
+        "FP": 5035,
+        "FN": 4369,
+        "TP": 2172
+      }
+    },
+    "rule_based_alone": {
+      "accuracy": 0.9603,
+      "precision": 0.3834,
+      "recall": 0.4305,
+      "f1_score": 0.4056,
+      "confusion_matrix": {
+        "TN": 196897,
+        "FP": 4529,
+        "FN": 3725,
+        "TP": 2816
+      }
+    },
+    "combined_system": {
+      "accuracy": 0.9458,
+      "precision": 0.306,
+      "recall": 0.5707,
+      "f1_score": 0.3984,
+      "confusion_matrix": {
+        "TN": 192960,
+        "FP": 8466,
+        "FN": 2808,
+        "TP": 3733
+      }
+    }
+  },
+  "per_rule_false_positives": {
+    "flag_missing": 0,
+    "flag_invalid_range": 0,
+    "flag_sudden_step": 1596,
+    "flag_frozen": 2936,
+    "flag_data_gap": 0
+  },
+  "fault_type_breakdown": {
+    "TEMPERATURE_SPIKE": {
+      "total_injected": 406,
+      "detected_combined": 404,
+      "detected_if_alone": 53,
+      "detected_rules_alone": 404,
+      "recall_combined": 0.9951,
+      "recall_if_alone": 0.1305,
+      "recall_rules_alone": 0.9951
+    },
+    "PRESSURE_SPIKE": {
+      "total_injected": 402,
+      "detected_combined": 402,
+      "detected_if_alone": 391,
+      "detected_rules_alone": 402,
+      "recall_combined": 1.0,
+      "recall_if_alone": 0.9726,
+      "recall_rules_alone": 1.0
+    },
+    "HUMIDITY_SPIKE": {
+      "total_injected": 399,
+      "detected_combined": 399,
+      "detected_if_alone": 367,
+      "detected_rules_alone": 399,
+      "recall_combined": 1.0,
+      "recall_if_alone": 0.9198,
+      "recall_rules_alone": 1.0
+    },
+    "FROZEN_SENSOR": {
+      "total_injected": 2715,
+      "detected_combined": 781,
+      "detected_if_alone": 8,
+      "detected_rules_alone": 781,
+      "recall_combined": 0.2877,
+      "recall_if_alone": 0.0029,
+      "recall_rules_alone": 0.2877
+    },
+    "SENSOR_DRIFT": {
+      "total_injected": 1815,
+      "detected_combined": 943,
+      "detected_if_alone": 948,
+      "detected_rules_alone": 28,
+      "recall_combined": 0.5196,
+      "recall_if_alone": 0.5223,
+      "recall_rules_alone": 0.0154
+    },
+    "MISSING_DATA": {
+      "total_injected": 407,
+      "detected_combined": 407,
+      "detected_if_alone": 8,
+      "detected_rules_alone": 407,
+      "recall_combined": 1.0,
+      "recall_if_alone": 0.0197,
+      "recall_rules_alone": 1.0
+    },
+    "MULTIVARIATE_ANOMALY": {
+      "total_injected": 397,
+      "detected_combined": 397,
+      "detected_if_alone": 397,
+      "detected_rules_alone": 395,
+      "recall_combined": 1.0,
+      "recall_if_alone": 1.0,
+      "recall_rules_alone": 0.995
+    }
+  }
+}
