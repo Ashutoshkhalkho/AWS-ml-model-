@@ -1,4 +1,4 @@
-# SIH26073: AI/ML-Based Intelligent Anomaly Detection & Quality Assurance for Automatic Weather Stations (AWS)
+# AI/ML-Based Intelligent Anomaly Detection & Quality Assurance for Automatic Weather Stations (AWS)
 
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-v1.3%2B-orange.svg)](https://scikit-learn.org/)
