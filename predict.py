@@ -21,7 +21,7 @@ from src.explainability import explain_anomalies
 
 def run_prediction(
     input_path: str = "data/sample/aws_weather_sample.csv",
-    model_path: str = "models/isolation_forest_aws.joblib",
+    model_path: str = "models/isolation_forest_v2.joblib",
     output_path: str = "data/processed/predictions.csv",
 ):
     print("=" * 60)
@@ -91,7 +91,7 @@ def run_prediction(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Predict AWS Anomaly Detection")
     parser.add_argument("--input", type=str, default="data/sample/aws_weather_sample.csv", help="Input CSV path")
-    parser.add_argument("--model", type=str, default="models/isolation_forest_aws.joblib", help="Model path")
+    parser.add_argument("--model", type=str, default="models/isolation_forest_v2.joblib", help="Model path")
     parser.add_argument("--output", type=str, default="data/processed/predictions.csv", help="Output predictions path")
 
     args = parser.parse_args()

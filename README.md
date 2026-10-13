@@ -382,6 +382,7 @@ SIH26073/
 │
 ├── train.py                      # End-to-end V2 training & evaluation entrypoint
 ├── predict.py                    # Batch CLI prediction script
+├── dashboard.py                  # Interactive Streamlit Web Dashboard
 ├── requirements.txt              # Required Python dependencies
 └── README.md                     # Comprehensive project documentation
 ```
@@ -438,7 +439,15 @@ To process any arbitrary AWS CSV file using a pre-trained model:
 python predict.py --input data/sample/aws_weather_sample.csv --output data/processed/predictions.csv --model models/isolation_forest_v2.joblib
 ```
 
-### 3. Running Automated Tests
+### 3. Launching the Interactive Anomaly Detection Dashboard
+Launch the interactive web UI (Streamlit) for real-time sensor analytics, anomaly charts, and explainable AI diagnostics:
+```bash
+streamlit run dashboard.py
+```
+- Local URL: `http://localhost:8501`
+- Includes custom CSV upload, station filters, dynamic physical thresholds, and CSV report export.
+
+### 4. Running Automated Tests
 Execute the Pytest integration suite to verify code correctness:
 ```bash
 pytest tests/test_pipeline.py -v

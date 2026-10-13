@@ -210,9 +210,9 @@ class IsolationForestDetectorV2:
             
         artifact = joblib.load(m_path)
         detector = cls(
-            n_estimators=artifact["n_estimators"],
-            contamination=artifact["contamination"],
-            random_state=artifact["random_state"],
+            n_estimators=artifact.get("n_estimators", 100),
+            contamination=artifact.get("contamination", 0.01),
+            random_state=artifact.get("random_state", 42),
         )
         detector.model = artifact["model"]
         detector.scaler = artifact["scaler"]
@@ -301,4 +301,28 @@ def synthesize_results_v2(df: pd.DataFrame, score_threshold: float = 0.55) -> pd
             
     df["detected_anomaly_type"] = detected_types
     df["affected_sensor"] = affected_sensors
+    # Legacy compatibility fields
+    df["is_anomaly"] = df["final_is_anomaly"]
+    df["anomaly_type"] = df["detected_anomaly_type"]
+    df["affected_parameter"] = df["affected_sensor"]
     return df
+
+
+# Backwards compatibility aliases for Model V1 code and legacy scripts
+SensorRuleConfig = RuleThresholdConfig
+apply_rule_based_checks = apply_rule_checks
+AWSAnomalyDetector = IsolationForestDetectorV2
+
+
+def classify_anomalies(df: pd.DataFrame, config: RuleThresholdConfig = RuleThresholdConfig()) -> pd.DataFrame:
+    """Compatibility wrapper that routes to synthesize_results_v2."""
+    if "model_is_anomaly" not in df.columns:
+        df["model_is_anomaly"] = df.get("is_model_anomaly", False)
+    if "anomaly_score" not in df.columns:
+        df["anomaly_score"] = 0.0
+    res = synthesize_results_v2(df)
+    res["is_anomaly"] = res["final_is_anomaly"]
+    res["anomaly_type"] = res["detected_anomaly_type"]
+    res["affected_parameter"] = res["affected_sensor"]
+    return res
+

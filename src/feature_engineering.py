@@ -24,6 +24,8 @@ def engineer_features(
         DataFrame with engineered features and a list of feature column names.
     """
     df = df.copy()
+    if "lux" not in df.columns:
+        df["lux"] = 0.0
     
     # 1. Parse time column to datetime
     if "timestamp" in df.columns:
